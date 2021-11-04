@@ -1,11 +1,23 @@
 {
-  "greet": {
+  "utter_faq": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 1
+    "support": 2
   },
-  "utter_greet": {
+  "faq": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 2
+  },
+  "action_listen": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 6
+  },
+  "greet": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
@@ -17,7 +29,13 @@
     "f1-score": 1.0,
     "support": 1
   },
-  "action_listen": {
+  "utter_chitchat": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 2
+  },
+  "chitchat": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
@@ -29,23 +47,29 @@
     "f1-score": 1.0,
     "support": 1
   },
+  "utter_greet": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1
+  },
   "accuracy": 1.0,
   "macro avg": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 6
+    "support": 18
   },
   "weighted avg": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 6
+    "support": 18
   },
   "conversation_accuracy": {
     "accuracy": 1.0,
-    "correct": 2,
+    "correct": 6,
     "with_warnings": 0,
-    "total": 2
+    "total": 6
   }
 }

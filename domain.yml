@@ -3,6 +3,8 @@ version: "2.0"
 intents:
   - greet
   - goodbye
+  - faq
+  - chitchat
 
 
 responses:
@@ -11,6 +13,22 @@ responses:
 
   utter_goodbye:
   - text: "Bye"
+
+  utter_chitchat/ask_name:
+  - text: Hello, my name is Liebherr bot.
+  - text: I am called Liebherr bot!
+
+  utter_chitchat/ask_weather:
+  - text: Oh sorry, I am not built to answer to this question.
+  - text: I am not able to answer to that question.
+
+  utter_faq/creation_date:
+  - text: Liebherr was created in 1945.
+  - text: '1945'
+
+  utter_faq/number_employees:
+  - text: There are 47925 employees at Liebherr.
+  - text: I am not sure of the whole week but I can see the sun is out today.
 
 
 

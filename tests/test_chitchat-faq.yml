@@ -1,0 +1,31 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+stories:
+- story: anwser to chitchat/ask_name
+  steps:
+  - user: |
+      What is your name?
+    intent: chitchat
+  - action: utter_chitchat
+
+- story: anwser to chitchat/ask_weather
+  steps:
+  - user: |
+      What's the weather like today?
+    intent: chitchat
+  - action: utter_chitchat
+
+- story: anwser to faq/creation_date
+  steps:
+  - user: |
+      When was Liebherr created?
+    intent: faq
+  - action: utter_faq
+
+- story: anwser to faq/number_employees
+  steps:
+  - user: |
+      How many people do work in Liebherr?
+    intent: faq
+  - action: utter_faq

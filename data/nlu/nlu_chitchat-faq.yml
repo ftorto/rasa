@@ -29,20 +29,6 @@ nlu:
       - How many [members](employee) are there at Liebherr
       - What's Liebherr's size?
       - how many [members of staff](employee) are employed at Liebherr?
-
-
-  - intent: user_ask_information
-    examples: |
-      - I need the status and the delivery date of my repair number [3](repair_order) please
-      - Could you provide me the price of my unit ?
-      - Have you received  my unit corresponding to the RO number [25](repair_order) ?
-      - [122](repair_order) is my RO number. When has it been released ?
-      - I want information about this pn in number [70692A010001](pn)
-      - my pn is [GG436-1055-3](pn) .Give me information about it please.
-      - Is my RO number [122](repair_order)  has been released ?
-      - [5546](repair_order) is my number
-      - [B17BA1001](pn) is my pn.
-      - this is my pn [99127B03](pn)
   
   - lookup: employee
     examples: |
@@ -59,12 +45,4 @@ nlu:
     examples: |
       - employees
       - members
-
-  - regex: pn
-    examples: |
-      - [a-zA-Z0-9]+\d$
-
-  - regex: repair_order
-    examples: |
-      - ^\d*\d$
 

@@ -1,0 +1,9 @@
+version: "2.0"
+
+rules:
+
+- rule: Give some informations to user when he asks them
+  steps:
+  - intent: user_ask_information
+  - action: action_get_user_need_and_reply
+

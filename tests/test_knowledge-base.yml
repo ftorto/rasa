@@ -1,0 +1,13 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+stories:
+- story: Give some informations to user when he asks them
+  steps:
+  - user: |
+      I need the status and the delivery date of my repair order 3 please
+    intent: user_ask_information
+  - action: action_get_user_need_and_reply
+
+
+

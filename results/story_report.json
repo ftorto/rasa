@@ -1,23 +1,23 @@
 {
-  "utter_faq": {
+  "action_set_all_asked_info_to_none": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1
+  },
+  "utter_goodbye": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1
+  },
+  "chitchat": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
     "support": 2
   },
-  "faq": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 2
-  },
-  "action_listen": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 6
-  },
-  "greet": {
+  "user_ask_information": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
@@ -29,23 +29,47 @@
     "f1-score": 1.0,
     "support": 1
   },
+  "None": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 4
+  },
   "utter_chitchat": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
     "support": 2
   },
-  "chitchat": {
+  "utter_faq": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
     "support": 2
   },
-  "utter_goodbye": {
+  "action_get_user_need_and_reply": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
     "support": 1
+  },
+  "greet": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1
+  },
+  "action_listen": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 7
+  },
+  "faq": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 2
   },
   "utter_greet": {
     "precision": 1.0,
@@ -53,23 +77,28 @@
     "f1-score": 1.0,
     "support": 1
   },
-  "accuracy": 1.0,
-  "macro avg": {
+  "micro avg": {
     "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 18
+    "recall": 0.8461538461538461,
+    "f1-score": 0.9166666666666666,
+    "support": 26
+  },
+  "macro avg": {
+    "precision": 0.9230769230769231,
+    "recall": 0.9230769230769231,
+    "f1-score": 0.9230769230769231,
+    "support": 26
   },
   "weighted avg": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 18
+    "precision": 0.8461538461538461,
+    "recall": 0.8461538461538461,
+    "f1-score": 0.8461538461538461,
+    "support": 26
   },
   "conversation_accuracy": {
-    "accuracy": 1.0,
-    "correct": 6,
+    "accuracy": 0.7142857142857143,
+    "correct": 5,
     "with_warnings": 0,
-    "total": 6
+    "total": 7
   }
 }

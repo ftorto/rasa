@@ -1,1 +1,11 @@
-# None of the test stories failed - all good!
+version: "2.0"
+stories:
+- story: anwser to faq/number_employees (.\tests\test_chitchat-faq.yml)
+  steps:
+  - intent: faq
+  - action: utter_faq
+- story: Give some informations to user when he asks them (.\tests\test_knowledge-base.yml)
+  steps:
+  - intent: user_ask_information
+  - action: action_get_user_need_and_reply
+  - action: action_set_all_asked_info_to_none

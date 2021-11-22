@@ -1,9 +1,9 @@
 {
-  "faq/creation_date": {
+  "faq/number_employees": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 4,
+    "support": 5,
     "confused_with": {}
   },
   "chitchat/ask_name": {
@@ -13,14 +13,14 @@
     "support": 4,
     "confused_with": {}
   },
-  "faq/number_employees": {
+  "chitchat/ask_weather": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 3,
+    "support": 4,
     "confused_with": {}
   },
-  "chitchat/ask_weather": {
+  "faq/creation_date": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
@@ -32,12 +32,12 @@
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 15
+    "support": 17
   },
   "weighted avg": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 15
+    "support": 17
   }
 }

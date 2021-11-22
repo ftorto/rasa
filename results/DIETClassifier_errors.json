@@ -1,0 +1,120 @@
+[
+  {
+    "text": "What do people call you?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "employee",
+        "start": 8,
+        "end": 14,
+        "confidence_entity": 0.5935010313987732,
+        "value": "people",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "how many members of staff are employed at Liebherr?",
+    "entities": [
+      {
+        "start": 9,
+        "end": 25,
+        "value": "members of staff",
+        "entity": "employee"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "employee",
+        "start": 9,
+        "end": 16,
+        "confidence_entity": 0.5290923714637756,
+        "value": "people",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "employee",
+        "start": 20,
+        "end": 25,
+        "confidence_entity": 0.9922794103622437,
+        "value": "staff",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Give me the status of 377 ro",
+    "entities": [
+      {
+        "start": 22,
+        "end": 25,
+        "value": "377",
+        "entity": "repair_order"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "status",
+        "start": 12,
+        "end": 18,
+        "confidence_entity": 0.808971107006073,
+        "value": "status",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "repair_order",
+        "start": 22,
+        "end": 25,
+        "confidence_entity": 0.9988732933998108,
+        "value": "377",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Have you received  my unit corresponding to the RO number 25 ?",
+    "entities": [
+      {
+        "start": 9,
+        "end": 17,
+        "value": "received",
+        "entity": "status"
+      },
+      {
+        "start": 58,
+        "end": 60,
+        "value": "25",
+        "entity": "repair_order"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "status",
+        "start": 9,
+        "end": 17,
+        "confidence_entity": 0.9917752742767334,
+        "value": "received",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "delivery_date",
+        "start": 41,
+        "end": 43,
+        "confidence_entity": 0.6885291934013367,
+        "value": "to",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "repair_order",
+        "start": 58,
+        "end": 60,
+        "confidence_entity": 0.9987145662307739,
+        "value": "25",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  }
+]

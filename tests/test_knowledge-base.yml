@@ -8,6 +8,7 @@ stories:
       I need the status and the delivery date of my repair order 3 please
     intent: user_ask_information
   - action: action_get_user_need_and_reply
+  - action: action_set_all_asked_info_to_none
 
 
 

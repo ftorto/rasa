@@ -28,6 +28,8 @@ slots:
         type: any
     delivery_date:
         type: any
+    simul_info:
+        type: any
         
 responses:
   utter_greet:
@@ -52,11 +54,23 @@ responses:
   - text: There are 47925 employees at Liebherr.
   - text: '47925'
 
+  utter_ask_asking_required_info_to_user_form_simul_info:
+  - text: It seems that you did not provide a repair order number. Please provide one
+  - text: Your Repair number is required.
+
 actions:
 - utter_chitchat
 - utter_faq
-- action_get_user_need_and_reply
-- action_set_all_asked_info_to_none
+- action_reply_to_user
+- validate_asking_required_info_to_user_form
+
+forms:
+  asking_required_info_to_user_form:
+    required_slots:
+        simul_info:
+          - type: from_text
+            intent: user_ask_information
+
 
 session_config:
   session_expiration_time: 60

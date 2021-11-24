@@ -1,9 +1,20 @@
 version: "2.0"
 
 rules:
-- rule: Give some informations to user when he asks them
+- rule: Activate asking_required_info_to_user_form
   steps:
   - intent: user_ask_information
-  - action: action_get_user_need_and_reply
-  - action: action_set_all_asked_info_to_none
+  - action: asking_required_info_to_user_form
+  - active_loop: asking_required_info_to_user_form
 
+
+- rule: Submit asking_required_info_to_user_form
+  condition:
+  # Condition that form is active.
+    - active_loop: asking_required_info_to_user_form
+  steps:
+    # Form is deactivated
+    - action: asking_required_info_to_user_form
+    - active_loop: null
+    # The actions we want to run when the form is submitted.
+    - action: action_reply_to_user

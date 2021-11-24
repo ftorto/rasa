@@ -5,10 +5,10 @@ stories:
 - story: Give some informations to user when he asks them
   steps:
   - user: |
-      I need the status and the delivery date of my repair order 3 please
+      I need the [status](status) and the [delivery date](delivery_date) of my repair order [3](repair_order) please
     intent: user_ask_information
-  - action: action_get_user_need_and_reply
-  - action: action_set_all_asked_info_to_none
+  - action: asking_required_info_to_user_form
+  - active_loop: asking_required_info_to_user_form
 
 
 

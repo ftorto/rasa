@@ -1,9 +1,9 @@
 {
-  "repair_order": {
-    "precision": 1.0,
+  "delivery_date": {
+    "precision": 0.8333333333333334,
     "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 8,
+    "f1-score": 0.9090909090909091,
+    "support": 5,
     "confused_with": {}
   },
   "employee": {
@@ -13,20 +13,6 @@
     "support": 6,
     "confused_with": {}
   },
-  "delivery_date": {
-    "precision": 0.8333333333333334,
-    "recall": 1.0,
-    "f1-score": 0.9090909090909091,
-    "support": 5,
-    "confused_with": {}
-  },
-  "age": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 3,
-    "confused_with": {}
-  },
   "status": {
     "precision": 0.75,
     "recall": 1.0,
@@ -34,11 +20,25 @@
     "support": 3,
     "confused_with": {}
   },
+  "repair_order": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 8,
+    "confused_with": {}
+  },
   "pn": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
     "support": 4,
+    "confused_with": {}
+  },
+  "age": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3,
     "confused_with": {}
   },
   "micro avg": {

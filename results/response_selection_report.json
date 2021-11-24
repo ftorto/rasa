@@ -1,16 +1,16 @@
 {
-  "faq/number_employees": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 5,
-    "confused_with": {}
-  },
   "chitchat/ask_name": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
     "support": 4,
+    "confused_with": {}
+  },
+  "faq/number_employees": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 5,
     "confused_with": {}
   },
   "chitchat/ask_weather": {

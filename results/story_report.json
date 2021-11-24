@@ -1,23 +1,5 @@
 {
-  "action_set_all_asked_info_to_none": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 1
-  },
-  "utter_goodbye": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 1
-  },
-  "chitchat": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 2
-  },
-  "user_ask_information": {
+  "ask_required_info_to_user_form": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
@@ -29,43 +11,7 @@
     "f1-score": 1.0,
     "support": 1
   },
-  "None": {
-    "precision": 0.0,
-    "recall": 0.0,
-    "f1-score": 0.0,
-    "support": 4
-  },
-  "utter_chitchat": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 2
-  },
   "utter_faq": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 2
-  },
-  "action_get_user_need_and_reply": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 1
-  },
-  "greet": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 1
-  },
-  "action_listen": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 7
-  },
-  "faq": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
@@ -77,27 +23,93 @@
     "f1-score": 1.0,
     "support": 1
   },
+  "[status](status)": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1
+  },
+  "chitchat": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 2
+  },
+  "[delivery date](delivery_date)": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1
+  },
+  "utter_goodbye": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1
+  },
+  "faq": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 2
+  },
+  "action_listen": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 7
+  },
+  "user_ask_information": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1
+  },
+  "[3](repair_order)": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1
+  },
+  "utter_chitchat": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 2
+  },
+  "greet": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1
+  },
+  "None": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1
+  },
   "micro avg": {
     "precision": 1.0,
-    "recall": 0.8461538461538461,
-    "f1-score": 0.9166666666666666,
-    "support": 26
+    "recall": 0.96,
+    "f1-score": 0.9795918367346939,
+    "support": 25
   },
   "macro avg": {
-    "precision": 0.9230769230769231,
-    "recall": 0.9230769230769231,
-    "f1-score": 0.9230769230769231,
-    "support": 26
+    "precision": 0.9333333333333333,
+    "recall": 0.9333333333333333,
+    "f1-score": 0.9333333333333333,
+    "support": 25
   },
   "weighted avg": {
-    "precision": 0.8461538461538461,
-    "recall": 0.8461538461538461,
-    "f1-score": 0.8461538461538461,
-    "support": 26
+    "precision": 0.96,
+    "recall": 0.96,
+    "f1-score": 0.96,
+    "support": 25
   },
   "conversation_accuracy": {
-    "accuracy": 0.7142857142857143,
-    "correct": 5,
+    "accuracy": 0.8571428571428571,
+    "correct": 6,
     "with_warnings": 0,
     "total": 7
   }

@@ -56,7 +56,7 @@ class ActionReplyToUser(Action):
         #     dispatcher.utter_message(text  = bot_text)
         #     return[]
         
-        if status != None or delivery_date !=  None:
+        if status is not None or delivery_date is not None:
             #as indexes in python start at 0 we look at information at index repair_order - 1
             infos = data_base.iloc[int(repair_order) - 1]
             if status != None:

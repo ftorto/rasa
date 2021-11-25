@@ -7,7 +7,7 @@
         "entity": "employee",
         "start": 8,
         "end": 14,
-        "confidence_entity": 0.5552175641059875,
+        "confidence_entity": 0.5422932505607605,
         "value": "people",
         "extractor": "DIETClassifier"
       }
@@ -28,7 +28,7 @@
         "entity": "employee",
         "start": 9,
         "end": 16,
-        "confidence_entity": 0.49671363830566406,
+        "confidence_entity": 0.521685004234314,
         "value": "people",
         "extractor": "DIETClassifier",
         "processors": [
@@ -39,7 +39,7 @@
         "entity": "employee",
         "start": 20,
         "end": 25,
-        "confidence_entity": 0.9898430705070496,
+        "confidence_entity": 0.9901097416877747,
         "value": "staff",
         "extractor": "DIETClassifier"
       }
@@ -60,7 +60,7 @@
         "entity": "status",
         "start": 12,
         "end": 18,
-        "confidence_entity": 0.8351879715919495,
+        "confidence_entity": 0.8404451012611389,
         "value": "status",
         "extractor": "DIETClassifier"
       },
@@ -68,7 +68,7 @@
         "entity": "repair_order",
         "start": 22,
         "end": 25,
-        "confidence_entity": 0.9989945292472839,
+        "confidence_entity": 0.9986302852630615,
         "value": "377",
         "extractor": "DIETClassifier"
       }
@@ -95,7 +95,7 @@
         "entity": "status",
         "start": 9,
         "end": 17,
-        "confidence_entity": 0.9938616752624512,
+        "confidence_entity": 0.9965141415596008,
         "value": "received",
         "extractor": "DIETClassifier"
       },
@@ -103,7 +103,7 @@
         "entity": "delivery_date",
         "start": 41,
         "end": 43,
-        "confidence_entity": 0.6026495695114136,
+        "confidence_entity": 0.5315068364143372,
         "value": "to",
         "extractor": "DIETClassifier"
       },
@@ -111,7 +111,7 @@
         "entity": "repair_order",
         "start": 58,
         "end": 60,
-        "confidence_entity": 0.9989356398582458,
+        "confidence_entity": 0.9984360337257385,
         "value": "25",
         "extractor": "DIETClassifier"
       }

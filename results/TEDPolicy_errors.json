@@ -1,0 +1,26 @@
+[
+  {
+    "text": "I need the status and the delivery date of my repair order 3 please",
+    "entities": [
+      {
+        "start": 11,
+        "end": 17,
+        "value": "status",
+        "entity": "status"
+      },
+      {
+        "start": 26,
+        "end": 39,
+        "value": "delivery date",
+        "entity": "delivery_date"
+      },
+      {
+        "start": 59,
+        "end": 60,
+        "value": "3",
+        "entity": "repair_order"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

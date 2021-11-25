@@ -1,4 +1,4 @@
-version: "2.0"
+version: "3.0"
 
 nlu:
   - intent: user_ask_information
@@ -24,4 +24,3 @@ nlu:
   - regex: repair_order
     examples: |
       - ^\d*\d$
-

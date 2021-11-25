@@ -1,11 +1,4 @@
 {
-  "goodbye": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 10,
-    "confused_with": {}
-  },
   "chitchat": {
     "precision": 1.0,
     "recall": 1.0,
@@ -18,6 +11,13 @@
     "recall": 1.0,
     "f1-score": 1.0,
     "support": 13,
+    "confused_with": {}
+  },
+  "goodbye": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 10,
     "confused_with": {}
   },
   "faq": {

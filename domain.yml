@@ -1,77 +1,83 @@
-version: "2.0"
-
+version: "3.0"
 intents:
-  - greet
-  - goodbye
-  - faq:
-      is_retrieval_intent: true
-  - chitchat:
-      is_retrieval_intent: true
-  - user_ask_information
-
+- greet
+- goodbye
+- faq:
+    is_retrieval_intent: true
+- chitchat:
+    is_retrieval_intent: true
+- user_ask_information
 entities:
-  - employee
-  - age
-  - pn
-  - repair_order
-  - status
-  - delivery_date
-
+- employee
+- age
+- pn
+- repair_order
+- status
+- delivery_date
 slots:
-    employee:
-        type: any
-    pn:
-        type: any
-    repair_order:
-        type: any
-    status:
-        type: any
-    delivery_date:
-        type: any
-    simul_info:
-        type: any
-        
+  employee:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: employee
+  pn:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: pn
+  repair_order:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: repair_order
+  status:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: status
+  delivery_date:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: delivery_date
+  simul_info:
+    type: any
+    mappings:
+    - type: from_text
+      intent: user_ask_information
+      conditions:
+      - active_loop: asking_required_info_to_user_form
+        requested_slot: simul_info
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
-
+  - text: Hey! How are you?
   utter_goodbye:
-  - text: "Bye"
-
+  - text: Bye
   utter_chitchat/ask_name:
   - text: Hello, my name is Liebherr bot.
   - text: I am called Liebherr bot!
-
   utter_chitchat/ask_weather:
   - text: Oh sorry, I am not built to answer to this question.
   - text: I am not able to answer to that question.
-
   utter_faq/creation_date:
   - text: Liebherr was created in 1945.
   - text: '1945'
-
   utter_faq/number_employees:
   - text: There are 47925 employees at Liebherr.
   - text: '47925'
-
   utter_ask_asking_required_info_to_user_form_simul_info:
   - text: It seems that you did not provide a repair order number. Please provide one
   - text: Your Repair number is required.
-
 actions:
 - utter_chitchat
 - utter_faq
 - action_reply_to_user
 - validate_asking_required_info_to_user_form
-
 forms:
   asking_required_info_to_user_form:
+    ignored_intents: []
     required_slots:
-        simul_info:
-          - type: from_text
-            intent: user_ask_information
-
-
+    - simul_info
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

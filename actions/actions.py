@@ -51,10 +51,6 @@ class ActionReplyToUser(Action):
         # This commented condition is no more necessary as the current action is executed
         # only when the repair_order is not null
         
-        # if  repair_order == None:
-        #     bot_text = "It seems that you did not provide a repair order number. Please provide one"
-        #     dispatcher.utter_message(text  = bot_text)
-        #     return[]
         
         if status is not None or delivery_date is not None:
             #as indexes in python start at 0 we look at information at index repair_order - 1

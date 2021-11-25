@@ -10,10 +10,11 @@ from typing import Any, Text, Dict, List
 
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import AllSlotsReset, SlotSet
+from rasa_sdk.events import AllSlotsReset, SlotSet, Form
 from rasa_sdk.forms import FormAction, FormValidationAction
 
 import pandas as pd
+import random
 
 
 class ActionReplyToUser(Action):
@@ -42,6 +43,7 @@ class ActionReplyToUser(Action):
         repair_order = tracker.get_slot('repair_order')
         status = tracker.get_slot('status')
         delivery_date = tracker.get_slot('delivery_date')
+        price = tracker.get_slot('price')
         
         #we declare order infos as None to begin
         infos = None
@@ -56,37 +58,58 @@ class ActionReplyToUser(Action):
         #     dispatcher.utter_message(text  = bot_text)
         #     return[]
         
-        if status != None or delivery_date !=  None:
-            #as indexes in python start at 0 we look at information at index repair_order - 1
-            infos = data_base.iloc[int(repair_order) - 1]
-            if status != None:
-                # We look for the information stored in the colum which is Status
-                ro_status = infos.loc['Status']
-                if len(ro_status.strip()) == 0:
-                    bot_text = f" The status of your repair order {repair_order} is unknown. \n "
-                else:
-                    bot_text = f" The status of your repair order {repair_order} is {ro_status}. \n"
-                bot_message.append(bot_text)
-            if delivery_date !=  None:
-                # We look for the information stored in the colum which is Delivery date
-                # and we convert the result into a string
-                ro_delivery_date = str(infos.loc['Delivery date'])
-                if len(ro_delivery_date.strip()) == 0:
-                    bot_text = f"The delivery date of your repair order is unknown. "
-                else:               
-                    bot_text = f"The estimated delivery date is {ro_delivery_date}."  
-                bot_message.append(bot_text)   
-        else:
-            # this action is not implemented yet
-            dispatcher.utter_message(text= "Send all information to the user or ask him to be more specific ")
-            return[]    
         
+        #let's check if the given repair number of the user is in our repair number list
+        
+        if int(repair_order) in list(set(data_base['RO'])):
+        
+            if status != None or delivery_date !=  None or price !=  None:
+                #as indexes in python start at 0 we look at information at index repair_order - 1
+                infos = data_base.iloc[int(repair_order) - 1]
+                if status != None:
+                    # We look for the information stored in the colum which is Status
+                    ro_status = infos.loc['Status']
+                    if len(ro_status.strip()) == 0:
+                        bot_text = f" The status of your repair order {repair_order} is unknown. \n "
+                    else:
+                        bot_text = f" The status of your repair order {repair_order} is {ro_status}. \n"
+                    bot_message.append(bot_text)
+                if delivery_date !=  None:
+                    # We look for the information stored in the colum which is Delivery date
+                    # and we convert the result into a string
+                    ro_delivery_date = str(infos.loc['Delivery date'])
+                    if len(ro_delivery_date.strip()) == 0:
+                        bot_text = f"The delivery date of your repair order is unknown. \n "
+                    else:               
+                        bot_text = f"The estimated delivery date is {ro_delivery_date}. \n"  
+                    bot_message.append(bot_text)   
+                if price !=  None:
+                    # We look for the information stored in the colum which is Delivery date
+                    # and we convert the result into a string
+                    ro_price = str(infos.loc['Total Price'])
+                    if len(ro_price.strip()) == 0:
+                        bot_text = f"The price date of your repair order is unknown. "
+                    else:               
+                        bot_text = [f"The price of your RO {repair_order} is {round(float(ro_price),2)} €. \n",
+                                    f"Ok thanks. The price of your repair order number {repair_order} is {round(float(ro_price),2)} $. \n"] 
+                    bot_message.append(bot_text[random.randint(0, 1)])                
+            else:
+                # this action is not implemented yet
+                dispatcher.utter_message(text= "Send all information to the user or ask him to be more specific ")
+                return[]    
+        else:
+             dispatcher.utter_message(text= f"The repair order {repair_order} is not in our list." )
+             return[SlotSet("simul_info", None),
+                    SlotSet("repair_order", None),
+                    Form("asking_required_info_to_user_form")]  
+            
         dispatcher.utter_message(text  = "".join(bot_message))     
 
         return [SlotSet("simul_info", None),
                 SlotSet("repair_order", None),
                 SlotSet("status", None),
-                SlotSet("delivery_date", None)]
+                SlotSet("delivery_date", None),
+                SlotSet("price", None)]
 
 
 class ValidateAskRequiredInfoToUserForm(FormValidationAction):
@@ -107,3 +130,18 @@ class ValidateAskRequiredInfoToUserForm(FormValidationAction):
             return {"simul_info": repair_order}
         else:
             return {"simul_info": None}
+        
+class SimulInfoAffector(Action):
+    
+    def name(self) :
+        return "action_simul_info_affector"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]):
+        """  
+        This function will affect the value of repair order to simul_info slot anwser
+        """
+        # retrieve value of repair_order.
+        repair_order = tracker.get_slot('repair_order')
+        return [SlotSet("simul_info", repair_order)]

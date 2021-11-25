@@ -7,7 +7,9 @@ nlu:
       - What is the [status](status) of my repair number [3](repair_order) ?
       - Can you give me the forcasted [date to finish](delivery_date) my demand number [456](repair_order) please ?
       - Give me the status of [377](repair_order) ro
-      - Could you provide me the price of my unit ?
+      - Could you provide me the [price](price) of my unit ?
+      - How much does my unit [cost](price) ?
+      - What is the [amount](price) of my order ?
       - Have you [received](status)  my unit corresponding to the RO number [25](repair_order) ?
       - [122](repair_order) is my RO number. When has it been released ?
       - I want information about this pn in number [70692A010001](pn)

@@ -30,7 +30,7 @@ class ActionReplyToUser(Action):
         """
         
         # Reading the kwowledge base file
-        path_responses = r"knowledge base\Chatbot_training_data.xlsx"
+        path_responses = r"knowledge_base/Chatbot_training_data.xlsx"
         # We want empty cells to remain as so rather than to be parsed as NA 
         # so we add na_filter = False
         data_base = pd.read_excel(path_responses, na_filter= False) 

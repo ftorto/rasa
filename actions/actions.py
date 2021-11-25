@@ -15,12 +15,37 @@ from rasa_sdk.forms import FormAction, FormValidationAction
 
 import pandas as pd
 import random
+import unicodedata
+from fuzzywuzzy import fuzz
 
 
 class ActionReplyToUser(Action):
 
     def name(self) :
         return "action_reply_to_user"
+    
+    def distance_phrases(self,phrase1, phrase2):
+        """
+            cette fonction calcule la distance de Levenshtein 
+            tres amélioree entre deux phrases
+        """
+        """
+            lev.ratio
+            fuzz.ratio
+            fuzz.partial_ratio
+            fuzz.token_sort_ratio
+            fuzz.token_set_ratio
+        
+        """
+        #creation d'une fonction lambda qui transforme en minuscule et enleve les espaces
+        minusculeSansEspace = lambda x: x.lower().strip()
+        #creation d'une fonction qui enleve les accens
+        enleveurAccent = lambda x:unicodedata.normalize('NFKD', x).encode('ASCII', 'ignore').decode("utf-8") 
+        #Application des fonctions aux mots a comparer
+        phrase1 = enleveurAccent(minusculeSansEspace(phrase1))
+        phrase2 = enleveurAccent(minusculeSansEspace(phrase2))
+        return fuzz.token_set_ratio(phrase1,phrase2)
+
 
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
@@ -67,13 +92,21 @@ class ActionReplyToUser(Action):
                 #as indexes in python start at 0 we look at information at index repair_order - 1
                 infos = data_base.iloc[int(repair_order) - 1]
                 if status != None:
-                    # We look for the information stored in the colum which is Status
-                    ro_status = infos.loc['Status']
-                    if len(ro_status.strip()) == 0:
-                        bot_text = f" The status of your repair order {repair_order} is unknown. \n "
+                    if self.distance_phrases(status, "status") > 80:
+                        # We look for the information stored in the colum which is Status
+                        ro_status = infos.loc['Status']
+                        if len(ro_status.strip()) == 0:
+                            bot_text = f" The status of your repair order {repair_order} is unknown. \n "
+                        else:
+                            bot_text = f" The status of your repair order {repair_order} is {ro_status}. \n"
+                        bot_message.append(bot_text)
                     else:
-                        bot_text = f" The status of your repair order {repair_order} is {ro_status}. \n"
-                    bot_message.append(bot_text)
+                        ro_status = infos.loc['Status']
+                        if self.distance_phrases(status, ro_status) > 80:
+                            bot_text = f" Yes the status of your ro {repair_order} is {status}. \n"
+                        else:
+                            bot_text = f" No the status of your ro {repair_order} is {ro_status}. \n"
+                        bot_message.append(bot_text)           
                 if delivery_date !=  None:
                     # We look for the information stored in the colum which is Delivery date
                     # and we convert the result into a string

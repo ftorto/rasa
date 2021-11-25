@@ -27,3 +27,14 @@ nlu:
     examples: |
       - ^\d*\d$
 
+  - lookup: status
+    examples: |
+      - Delivered
+      - Not Repaired
+      - Quote requested
+      - Ready for quote
+      - Received
+      - Released
+      - Work in progress
+      - Work performed
+

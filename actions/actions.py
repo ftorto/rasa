@@ -66,7 +66,10 @@ class ActionReplyToUser(Action):
                 if len(ro_status.strip()) == 0:
                     bot_text = f" The status of your repair order {repair_order} is unknown. \n "
                 else:
-                    bot_text = f" The status of your repair order {repair_order} is {ro_status}. \n"
+                    prefix = "NO !"
+                    if status.lower() == ro_status.lower():
+                        prefix = "YES !"
+                    bot_text = f"{prefix} The status of your repair order {repair_order} is {ro_status}. \n"
                 bot_message.append(bot_text)
             if delivery_date !=  None:
                 # We look for the information stored in the colum which is Delivery date

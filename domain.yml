@@ -13,6 +13,7 @@ entities:
 - pn
 - repair_order
 - status
+- price
 - delivery_date
 slots:
   employee:
@@ -40,9 +41,15 @@ slots:
     - type: from_entity
       entity: status
     - type: from_text
+  price:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: price
+    - type: from_text
       conditions:
       - active_loop: asking_required_info_to_user_form
-        requested_slot: status
+        requested_slot: price
   delivery_date:
     type: any
     mappings:
@@ -77,7 +84,6 @@ forms:
   asking_required_info_to_user_form:
     required_slots:
     - repair_order
-    - status
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

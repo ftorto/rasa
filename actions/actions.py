@@ -42,6 +42,7 @@ class ActionReplyToUser(Action):
         repair_order = tracker.get_slot('repair_order')
         status = tracker.get_slot('status')
         delivery_date = tracker.get_slot('delivery_date')
+        price = tracker.get_slot('price')
         
         #we declare order infos as None to begin
         infos = None
@@ -56,7 +57,7 @@ class ActionReplyToUser(Action):
         #     dispatcher.utter_message(text  = bot_text)
         #     return[]
         
-        if status != None or delivery_date !=  None:
+        if status != None or delivery_date !=  None or price !=  None:
             #as indexes in python start at 0 we look at information at index repair_order - 1
             infos = data_base.iloc[int(repair_order) - 1]
             if status != None:
@@ -76,6 +77,15 @@ class ActionReplyToUser(Action):
                 else:               
                     bot_text = f"The estimated delivery date is {ro_delivery_date}."  
                 bot_message.append(bot_text)   
+            if price !=  None:
+                # We look for the information stored in the colum which is Delivery date
+                # and we convert the result into a string
+                ro_price = str(infos.loc['Total Price'])
+                if len(ro_price.strip()) == 0:
+                    bot_text = f"The price of your repair order is unknown. "
+                else:               
+                    bot_text = f"This will cost {ro_price} $$$$"  
+                bot_message.append(bot_text)   
         else:
             # this action is not implemented yet
             dispatcher.utter_message(text= "Send all information to the user or ask him to be more specific ")
@@ -85,7 +95,8 @@ class ActionReplyToUser(Action):
 
         return [SlotSet("repair_order", None),
                 SlotSet("status", None),
-                SlotSet("delivery_date", None)]
+                SlotSet("delivery_date", None),
+                SlotSet("price", None)]
 
 
 class ValidateAskRequiredInfoToUserForm(FormValidationAction):

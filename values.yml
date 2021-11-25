@@ -1,0 +1,42 @@
+debugMode: true
+app:
+    # from microk8s build-in registry
+    name: "laodocker2020/liebherr-bot-server"
+    tag: "0.0.1"
+rasax:
+    # initialUser is the user which is created upon the initial start of Rasa X
+    initialUser:
+        # password for the Rasa X user
+        password: "liebherr"
+    # passwordSalt Rasa X uses to salt the user passwords
+    passwordSalt: "MLHAnV1te5oZeVbgb"
+    # token Rasa X accepts as authentication token from other Rasa services
+    token: "C3df86nuIkRbxpiz/g"
+    # jwtSecret which is used to sign the jwtTokens of the users
+    jwtSecret: "OT9iYYsIjIby672v/"
+    # tag refers to the Rasa X image tag
+    tag: "0.42.2"
+rasa:
+    # token Rasa accepts as authentication token from other Rasa services
+    token: "dHPk+dcULGQDCauDw"
+    # tag refers to the Rasa image tag
+    tag: "2.8.5-full"
+    additionalChannelCredentials: 
+        socketio:
+            user_message_evt: user_uttered
+            bot_message_evt: bot_uttered
+            session_persistence: true
+rabbitmq:
+    # rabbitmq settings of the subchart
+    rabbitmq:
+        # password which is used for the authentication
+        password: "enEs3MiJxL6dOvit4Q"
+global:
+    # postgresql: global settings of the postgresql subchart
+    postgresql:
+        # postgresqlPassword is the password which is used when the postgresqlUsername equals "postgres"
+        postgresqlPassword: "HLiU437TnXLN+jT8MQ"
+    # redis: global settings of the postgresql subchart
+    redis:
+        # password to use in case there no external secret was provided
+        password: "0UuDAR3yAQXdhbQ"

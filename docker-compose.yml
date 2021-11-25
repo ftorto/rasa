@@ -1,0 +1,7 @@
+version: '3.7'
+services:
+  civa-augmented-bot-action-server:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: laodocker2020/liebherr-bot-server:0.0.1

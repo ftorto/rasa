@@ -30,24 +30,24 @@ slots:
     mappings:
     - type: from_entity
       entity: repair_order
+    - type: from_text
+      conditions:
+      - active_loop: asking_required_info_to_user_form
+        requested_slot: repair_order
   status:
     type: any
     mappings:
     - type: from_entity
       entity: status
+    - type: from_text
+      conditions:
+      - active_loop: asking_required_info_to_user_form
+        requested_slot: status
   delivery_date:
     type: any
     mappings:
     - type: from_entity
       entity: delivery_date
-  simul_info:
-    type: any
-    mappings:
-    - type: from_text
-      intent: user_ask_information
-      conditions:
-      - active_loop: asking_required_info_to_user_form
-        requested_slot: simul_info
 responses:
   utter_greet:
   - text: Hey! How are you?
@@ -65,7 +65,7 @@ responses:
   utter_faq/number_employees:
   - text: There are 47925 employees at Liebherr.
   - text: '47925'
-  utter_ask_asking_required_info_to_user_form_simul_info:
+  utter_ask_asking_required_info_to_user_form_repair_order:
   - text: It seems that you did not provide a repair order number. Please provide one
   - text: Your Repair number is required.
 actions:
@@ -75,9 +75,9 @@ actions:
 - validate_asking_required_info_to_user_form
 forms:
   asking_required_info_to_user_form:
-    ignored_intents: []
     required_slots:
-    - simul_info
+    - repair_order
+    - status
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

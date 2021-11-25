@@ -11,7 +11,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import AllSlotsReset, SlotSet
-from rasa_sdk.forms import FormAction, FormValidationAction
+from rasa_sdk.forms import FormValidationAction
 
 import pandas as pd
 
@@ -83,8 +83,7 @@ class ActionReplyToUser(Action):
         
         dispatcher.utter_message(text  = "".join(bot_message))     
 
-        return [SlotSet("simul_info", None),
-                SlotSet("repair_order", None),
+        return [SlotSet("repair_order", None),
                 SlotSet("status", None),
                 SlotSet("delivery_date", None)]
 
@@ -94,7 +93,7 @@ class ValidateAskRequiredInfoToUserForm(FormValidationAction):
     def name(self):
         return 'validate_asking_required_info_to_user_form'
 
-    def validate_simul_info(self, slot_value, dispatcher, tracker, domain):
+    def validate_repair_order(self, slot_value, dispatcher, tracker, domain):
         
         """
         This function will validate that the required informations was given 
@@ -104,6 +103,6 @@ class ValidateAskRequiredInfoToUserForm(FormValidationAction):
         repair_order = tracker.get_slot('repair_order')
         
         if repair_order is not None and type(int(str(repair_order))) == int:
-            return {"simul_info": repair_order}
+            return {"repair_order": repair_order}
         else:
-            return {"simul_info": None}
+            return {"repair_order": None}

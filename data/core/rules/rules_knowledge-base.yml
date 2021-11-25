@@ -4,6 +4,7 @@ rules:
 - rule: Activate asking_required_info_to_user_form
   steps:
   - intent: user_ask_information
+  - action: action_simul_info_affector
   - action: asking_required_info_to_user_form
   - active_loop: asking_required_info_to_user_form
 
@@ -18,3 +19,5 @@ rules:
     - active_loop: null
     # The actions we want to run when the form is submitted.
     - action: action_reply_to_user
+
+    

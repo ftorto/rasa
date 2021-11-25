@@ -1,11 +1,11 @@
 version: "2.0"
 
-# - story: Say greet anytime the user says greet
-#   steps:
-#   - intent: greet
-#   - action: utter_greet
+- story: Say greet anytime the user says greet
+  steps:
+  - intent: greet
+  - action: utter_greet
 
-# - story: Say goodbye anytime the user says goodbye
-#   steps:
-#   - intent: goodbye
-#   - action: utter_goodbye
+- story: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye

@@ -16,6 +16,7 @@ entities:
   - repair_order
   - status
   - delivery_date
+  - price
 
 slots:
     employee:
@@ -29,6 +30,8 @@ slots:
     delivery_date:
         type: any
     simul_info:
+        type: any
+    price:
         type: any
         
 responses:
@@ -55,7 +58,7 @@ responses:
   - text: '47925'
 
   utter_ask_asking_required_info_to_user_form_simul_info:
-  - text: It seems that you did not provide a repair order number. Please provide one
+  - text: What is your repair number please ?
   - text: Your Repair number is required.
 
 actions:
@@ -63,14 +66,13 @@ actions:
 - utter_faq
 - action_reply_to_user
 - validate_asking_required_info_to_user_form
+- action_simul_info_affector
 
 forms:
   asking_required_info_to_user_form:
     required_slots:
         simul_info:
           - type: from_text
-            intent: user_ask_information
-
 
 session_config:
   session_expiration_time: 60
